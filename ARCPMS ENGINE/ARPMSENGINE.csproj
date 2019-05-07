@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{5465AF59-9841-4D60-95DB-DAFA4AAE7ADC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ARCPMS ENGINE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ARPMSENGINE</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OpcDaNet, Version=9.0.1.0, Culture=neutral, PublicKeyToken=5b58a8d8b6f4763b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Advosol\OPCDA.NET Client Component Professional\OpcDaNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.1.2, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="arpms2.ico" />
+    <Content Include="Resources\Start.ico" />
+    <Content Include="Resources\testIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthenticationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthenticationForm.designer.cs">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="src\mrs\Config\BasicConfig.cs" />
+    <Compile Include="src\mrs\Config\Logger.cs" />
+    <Compile Include="src\mrs\DBCon\DBConnection.cs" />
+    <Compile Include="src\mrs\DBCon\MSSQLCon.cs" />
+    <Compile Include="src\mrs\DBCon\UserDBConnection.cs" />
+    <Compile Include="src\mrs\Global\GlobalValues.cs" />
+    <Compile Include="src\mrs\Global\OpcTags.cs" />
+    <Compile Include="src\mrs\InitializeEngine.cs" />
+    <Compile Include="src\mrs\Manager\CarWashManager\Controller\CarWashControllerImp.cs" />
+    <Compile Include="src\mrs\Manager\CarWashManager\Controller\CarWashControllerService.cs" />
+    <Compile Include="src\mrs\Manager\CarWashManager\DB\CarWashDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\CarWashManager\DB\CarWashDaoService.cs" />
+    <Compile Include="src\mrs\Manager\CarWashManager\Model\CarWashData.cs" />
+    <Compile Include="src\mrs\Manager\ClickTransferManager\Controller\ClickTransferImp.cs" />
+    <Compile Include="src\mrs\Manager\ClickTransferManager\Controller\ClickTransferService.cs" />
+    <Compile Include="src\mrs\Manager\ClickTransferManager\DB\ClickTransferDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\ClickTransferManager\DB\ClickTransferDaoService.cs" />
+    <Compile Include="src\mrs\Manager\ErrorManager\Controller\ErrorControllerImp.cs" />
+    <Compile Include="src\mrs\Manager\ErrorManager\Controller\ErrorControllerService.cs" />
+    <Compile Include="src\mrs\Manager\ErrorManager\DB\ErrorDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\ErrorManager\DB\ErrorDaoService.cs" />
+    <Compile Include="src\mrs\Manager\ErrorManager\Model\ErrorData.cs" />
+    <Compile Include="src\mrs\Manager\InterFaceManager\Controller\InterfaceManagerImp.cs" />
+    <Compile Include="src\mrs\Manager\InterFaceManager\Controller\InterfaceManagerService.cs" />
+    <Compile Include="src\mrs\Manager\PalletManager\Controller\PalletManagerImp.cs" />
+    <Compile Include="src\mrs\Manager\PalletManager\Controller\PalletManagerService.cs" />
+    <Compile Include="src\mrs\Manager\PalletManager\DB\PalletDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\PalletManager\DB\PalletDaoService.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\Controller\ParkingControllerImp.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\Controller\ParkingControllerService.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\DB\ParkingDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\DB\ParkingDaoService.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\Model\PathDetailsData.cs" />
+    <Compile Include="src\mrs\Manager\ParkingManager\Model\pathDetailsMasterData.cs" />
+    <Compile Include="src\mrs\Manager\PvlManager\Controller\PVLManagerImp.cs" />
+    <Compile Include="src\mrs\Manager\PvlManager\Controller\PVLManagerService.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\Controller\QueueControllerImp.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\Controller\QueueControllerService.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\DB\QueueDaoImp.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\DB\QueueDaoService.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\Model\DisplayData.cs" />
+    <Compile Include="src\mrs\Manager\QueueManager\Model\QueueData.cs" />
+    <Compile Include="src\mrs\Manager\RehandlingManager\Controller\RehandlingControllerImp.cs" />
+    <Compile Include="src\mrs\Manager\RehandlingManager\Controller\RehandlingControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CM\Controller\CMControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CM\Controller\CMControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CM\DB\CMDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CM\DB\CMDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CM\Model\CMData.cs" />
+    <Compile Include="src\mrs\Modules\Machines\CommonServicesForMachines.cs" />
+    <Compile Include="src\mrs\Modules\Machines\EES\Controller\EESControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\EES\Controller\EESControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\EES\DB\EESDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\EES\DB\EESDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\EES\Model\EESData.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PST\Controller\PSTControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PST\Controller\PSTControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PST\DB\PSTDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PST\DB\PSTDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PST\Model\PSTData.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PS\Controller\PSControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PS\Controller\PSControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PS\DB\PSDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PS\DB\PSDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PS\Model\PSData.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PVL\Controller\PVLControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PVL\Controller\PVLControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PVL\DB\PVLDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PVL\DB\PVLDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\PVL\Model\PVLData.cs" />
+    <Compile Include="src\mrs\Modules\Machines\VLC\Controller\VLCControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\VLC\Controller\VLCControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\VLC\DB\VLCDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Machines\VLC\DB\VLCDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Machines\VLC\Model\VLCData.cs" />
+    <Compile Include="src\mrs\Modules\Slot\Controller\SlotControllerImp.cs" />
+    <Compile Include="src\mrs\Modules\Slot\Controller\SlotControllerService.cs" />
+    <Compile Include="src\mrs\Modules\Slot\DB\SlotDaoImp.cs" />
+    <Compile Include="src\mrs\Modules\Slot\DB\SlotDaoService.cs" />
+    <Compile Include="src\mrs\Modules\Slot\Model\SlotData.cs" />
+    <Compile Include="src\mrs\OPCConnection\OPCConnectionImp\OpcConnection.cs" />
+    <Compile Include="src\mrs\OPCConnection\OpcConnectionService.cs" />
+    <Compile Include="src\mrs\OPCOperations\OPCOperationsImp\OpcOperationsImp.cs" />
+    <Compile Include="src\mrs\OPCOperations\OPCOperationsImp\OpcThreadImp.cs" />
+    <Compile Include="src\mrs\OPCOperations\OpcOperationsService.cs" />
+    <Compile Include="src\mrs\OPCOperations\OpcThreadService.cs" />
+    <Compile Include="src\mrs\user\UserAuthentication.cs" />
+    <Compile Include="src\mrs\user\UserAuthenticationService.cs" />
+    <Compile Include="src\mrs\Utility\UtilityClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AuthenticationForm.resx">
+      <DependentUpon>AuthenticationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Index.resx">
+      <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
