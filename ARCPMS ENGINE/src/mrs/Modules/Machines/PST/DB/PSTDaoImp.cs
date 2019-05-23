@@ -135,6 +135,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PST.DB
                                      + " ,MACHINE_CHANNEL,IS_SWITCH_OFF,PVL_ID"
                                      + " FROM L2_PST_MASTER"
                                      + " WHERE AISLE_NO between " + minAisle + " and " + maxAisle
+                                     + " and AISLE_NO between " + maxAisle + " and " + minAisle
                                      + " and STATUS=2 and rownum=1";
 
                         command.CommandText = sql;
