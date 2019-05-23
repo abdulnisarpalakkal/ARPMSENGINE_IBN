@@ -13,12 +13,15 @@ using ARCPMS_ENGINE.src.mrs.Manager.ErrorManager.Controller;
 using ARCPMS_ENGINE.src.mrs.Manager.ErrorManager.Model;
 using ARCPMS_ENGINE.src.mrs.Config;
 using ARCPMS_ENGINE.src.mrs.Manager.ErrorManager.DB;
+using ARCPMS_ENGINE.src.mrs.Modules.Machines.PST.Controller;
+using ARCPMS_ENGINE.src.mrs.Modules.Machines.PST.Model;
 
 namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
 {
     class PSControllerImp : CommonServicesForMachines,PSControllerService
     {
         PSDaoService objPSDaoService = null;
+        PSTControllerService objPSTControllerService = null;
         OPCDA.NET.RefreshGroup uGrp;
         int DAUpdateRate = 1;
         Thread updateDataFromOpcListener = null;
@@ -573,8 +576,15 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
 
         public bool ClearPathForPS(Model.PSData objPSData)
         {
+            bool pathClear = true;
+            if(objPSTControllerService==null)
+                objPSTControllerService=new PSTControllerImp();
+
+            PSTData pst=objPSTControllerService.GetPSTDetailsInRange(objPSData.dynamicHome, objPSData.destAisle);
+            if (pst != null)
+                pathClear=!objPSTControllerService.IsPSTBlockedInDB(pst.machineCode);
             //TODO: implement the logic
-            return true;
+            return pathClear;
         }
 
         public bool ClearNearestPS(Model.PSData objPSData)
