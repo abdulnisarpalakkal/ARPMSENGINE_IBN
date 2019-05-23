@@ -1616,7 +1616,11 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.CM.Controller
 
 
                     result = opcd.ReadTag<bool>(objCMData.cmChannel, objCMData.machineCode, OpcTags.CM_L2_CMD_DONE);
-
+                    if (result)
+                    {
+                        if (!ConfirmCommandCompleted(objCMData))
+                            continue;
+                    }
                     if (counter > 3)
                     {
                         counter = 1;
@@ -1627,11 +1631,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.CM.Controller
 
                     }
                     counter += 1;
-                    if (result)
-                    {
-                        if (!ConfirmCommandCompleted(objCMData))
-                            continue;
-                    }
+                   
                 } while (!result);
                 // dbpm.UpdateMachineCommandStatus(machine, "", 0, 0, 0, 1); // update done=1 in trigger table
             }
