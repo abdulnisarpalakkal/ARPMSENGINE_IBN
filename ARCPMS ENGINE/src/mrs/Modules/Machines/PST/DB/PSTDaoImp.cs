@@ -134,9 +134,9 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PST.DB
                         string sql = "SELECT PST_ID, PST_NAME,AISLE_NO,ROW_NO,QUANTITY,MACHINE_CODE,IS_BLOCKED,STATUS"
                                      + " ,MACHINE_CHANNEL,IS_SWITCH_OFF,PVL_ID"
                                      + " FROM L2_PST_MASTER"
-                                     + " WHERE AISLE_NO between " + minAisle + " and " + maxAisle
-                                     + " and AISLE_NO between " + maxAisle + " and " + minAisle
-                                     + " and STATUS=2 and rownum=1";
+                                     + " WHERE (AISLE_NO between " + minAisle + " and " + maxAisle
+                                     + " or AISLE_NO between " + maxAisle + " and " + minAisle
+                                     + ") and STATUS=2 and rownum=1";
 
                         command.CommandText = sql;
                         using (OracleDataReader reader = command.ExecuteReader())

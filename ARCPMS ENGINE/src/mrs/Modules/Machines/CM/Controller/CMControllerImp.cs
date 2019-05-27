@@ -1616,12 +1616,9 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.CM.Controller
 
 
                     result = opcd.ReadTag<bool>(objCMData.cmChannel, objCMData.machineCode, OpcTags.CM_L2_CMD_DONE);
-                    if (result)
-                    {
-                        if (!ConfirmCommandCompleted(objCMData))
-                            continue;
-                    }
-                    if (counter > 3)
+                    result=result && ConfirmCommandCompleted(objCMData);
+
+                    if (!result && counter > 3)
                     {
                         counter = 1;
                         /**checking transaction deleted or not****/

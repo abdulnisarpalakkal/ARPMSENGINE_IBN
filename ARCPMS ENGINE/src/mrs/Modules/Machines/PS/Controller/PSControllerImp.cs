@@ -202,13 +202,13 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
                     objPSData.dynamicHome = opcd.ReadTag<Int32>(objPSData.machineChannel, objPSData.machineCode, OpcTags.PS_Shuttle_Aisle_Position_for_L2);
                     if (objPSData.dynamicHome != objPSData.destAisle)
                     {
-                        isPathClear = ClearPathForPS(objPSData);
-                        if (isPathClear)
-                        {
+                        //isPathClear = ClearPathForPS(objPSData);
+                        //if (isPathClear)
+                        //{
                             opcd.WriteTag<int>(objPSData.machineChannel, objPSData.machineCode, OpcTags.PS_L2_Destination_Aisle, objPSData.destAisle);
 
                             success = opcd.WriteTag<bool>(objPSData.machineChannel, objPSData.machineCode, objPSData.command, true);
-                        }
+                        //}
                     }
                     else
                     {
@@ -260,7 +260,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
                     objPSData.dynamicHome = opcd.ReadTag<Int32>(objPSData.machineChannel, objPSData.machineCode, OpcTags.PS_Shuttle_Aisle_Position_for_L2);
                     if (objPSData.dynamicHome != objPSData.destAisle)
                     {
-                        isPathClear = ClearPathForPS(objPSData);
+                        isPathClear = true;// ClearPathForPS(objPSData);
 
                     }
                     else
@@ -325,7 +325,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
                     objPSData.dynamicHome = opcd.ReadTag<Int32>(objPSData.machineChannel, objPSData.machineCode, OpcTags.PS_Shuttle_Aisle_Position_for_L2);
                     if (objPSData.dynamicHome != objPSData.destAisle)
                     {
-                        isPathClear = ClearPathForPS(objPSData);
+                        isPathClear = true;// ClearPathForPS(objPSData);
 
                     }
                     else
@@ -457,7 +457,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
                     objPSData.dynamicHome = opcd.ReadTag<Int32>(objPSData.machineChannel, objPSData.machineCode, OpcTags.PS_Shuttle_Aisle_Position_for_L2);
                     if (objPSData.dynamicHome != objPSData.destAisle)
                     {
-                        isPathClear = ClearPathForPS(objPSData);
+                        isPathClear = true;// ClearPathForPS(objPSData);
 
                     }
                     else
@@ -581,7 +581,7 @@ namespace ARCPMS_ENGINE.src.mrs.Modules.Machines.PS.Controller
                 objPSTControllerService=new PSTControllerImp();
 
             PSTData pst=objPSTControllerService.GetPSTDetailsInRange(objPSData.dynamicHome, objPSData.destAisle);
-            if (pst != null)
+            if (pst != null && pst.machineCode!=null)
                 pathClear=!objPSTControllerService.IsPSTBlockedInDB(pst.machineCode);
             //TODO: implement the logic
             return pathClear;
