@@ -285,7 +285,7 @@ namespace ARCPMS_ENGINE
             this.MaximizeBox = false;
             this.Name = "Index";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ARCPS Engine 1.0.8.3";
+            this.Text = "ARCPS Engine 1.0.8.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.index_FormClosing);
             this.Load += new System.EventHandler(this.index_Load);
             this.Click += new System.EventHandler(this.index_Click);
